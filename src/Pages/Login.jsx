@@ -3,9 +3,10 @@ import { AuthContext } from '../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import google from '../assets/image/google2.png';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signIn, loginWithGoogle } = useContext(AuthContext)
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -22,6 +23,18 @@ const Login = () => {
                 //         toast.success('User create successfully');
                 //         navigate('/')
                 //     })
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                console.log(result.user);
+                toast('User login successfully');
+                // navigate('/')
             })
             .catch(error => {
                 toast.error(error.message)
@@ -50,9 +63,12 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button type='submit' className="btn btn-success">Login</button>
                         </div>
-                        {/* <div>
-                            <button onClick={handleGoogleLogin} type='submit' className="btn btn-primary">Google</button>
-                        </div> */}
+                        <div onClick={handleGoogleLogin} className='flex'>
+                            <button type='submit' className="btn btn-primary">
+                                Login with google
+                            </button>
+                            <img src={google} className='w-12 h-12' alt="" />
+                        </div>
                         <p className='text-center text-lg mt-4 font-bold'>Are you new Pet sitting and walking? Please <Link className='text-orange-600 font-bold' to='/signup'>Sign Up</Link></p>
                     </form>
                 </div>

@@ -3,10 +3,11 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import google from '../assets/image/google2.png';
 
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, handleUpdateProfile, loginWithGoogle } = useContext(AuthContext);
 
     // const { createUser, loginWithGoogle, handleUpdateProfile } = useContext(AuthContext);
     // const navigate = useNavigate();
@@ -29,29 +30,29 @@ const SignUp = () => {
 
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
-                // handleUpdateProfile(name, photo)
-                //     .then(result => {
-                toast('User create successfully');
-                //         navigate('/')
-                //     })
+                handleUpdateProfile(name, photo)
+                    .then(result => {
+                        toast('User create successfully');
+                        // navigate('/')
+                    })
+
             })
             .catch(error => {
                 toast.error(error.message)
             })
     }
 
-    // const handleGoogleLogin = () => {
-    //     loginWithGoogle()
-    //         .then(result => {
-    //             console.log(result.user);
-    //             toast.success('User login successfully');
-    //             navigate('/')
-    //         })
-    //         .catch(error => {
-    //             toast.error(error.message)
-    //         })
-    // }
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                console.log(result.user);
+                toast('User login successfully');
+                // navigate('/')
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
 
 
     return (
@@ -89,9 +90,12 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <button type='submit' className="btn btn-success">SignUp</button>
                         </div>
-                        {/* <div>
-                            <button onClick={handleGoogleLogin} type='submit' className="btn btn-primary">Google</button>
-                        </div> */}
+                        <div onClick={handleGoogleLogin} className='flex'>
+                            <button type='submit' className="btn btn-primary">
+                                Login with google
+                            </button>
+                            <img src={google} className='w-12 h-12' alt="" />
+                        </div>
                         <p className='text-center text-lg mt-4 font-bold'>Already have an account? Please <Link className='text-orange-600 font-bold' to='/login'>Login</Link></p>
                     </form>
                 </div>
