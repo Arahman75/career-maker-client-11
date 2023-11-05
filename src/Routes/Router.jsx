@@ -5,7 +5,9 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import ErrorPage from "../Pages/ErrorPage";
 import Services from "../Pages/Services";
-
+import MySchedules from "../Pages/MySchedules";
+import MyServices from "../Pages/MyServices";
+import AddServices from "../Pages/AddServices";
 
 const router = createBrowserRouter([
     {
@@ -29,17 +31,19 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
-            // {
-            //     path: '/book/:id',
-            //     element: <PrivateRoute><BookService></BookService></PrivateRoute>,
-            //     loader: ({ params }) => fetch(`https://car-doctor-server-pf1uorald-abdur-rahmans-projects.vercel.app/services/${params.id}`)
-            // },
-            // {
-            //     path: '/bookings',
-            //     element: <PrivateRoute>
-            //         <Bookings></Bookings>
-            //     </PrivateRoute>
-            // }
+            {
+                path: '/my-schedules',
+                element: <MySchedules></MySchedules>
+            },
+            {
+                path: '/my-services',
+                element: <MyServices></MyServices>
+            },
+            {
+                path: '/add-services',
+                element: <AddServices></AddServices>
+            }
+
         ]
     },
 ]);

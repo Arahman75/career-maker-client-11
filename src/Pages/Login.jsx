@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../assets/image/google2.png';
 
 const Login = () => {
-    const { signIn, loginWithGoogle } = useContext(AuthContext)
+    const { signIn, loginWithGoogle } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -18,11 +20,6 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast('User login successfully')
-                // handleUpdateProfile(name, photo)
-                //     .then(result => {
-                //         toast.success('User create successfully');
-                //         navigate('/')
-                //     })
             })
             .catch(error => {
                 toast.error(error.message)
@@ -34,7 +31,8 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast('User login successfully');
-                // navigate('/')
+                // navigate after login
+                navigate(location?.state ? location.state : "/")
             })
             .catch(error => {
                 toast.error(error.message)
@@ -63,7 +61,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button type='submit' className="btn btn-success">Login</button>
                         </div>
-                        <div onClick={handleGoogleLogin} className='flex'>
+                        <div onClick={handleGoogleLogin} className='flex cursor-pointer'>
                             <button type='submit' className="btn btn-primary">
                                 Login with google
                             </button>

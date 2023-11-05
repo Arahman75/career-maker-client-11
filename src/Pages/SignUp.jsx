@@ -90,7 +90,7 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <button type='submit' className="btn btn-success">SignUp</button>
                         </div>
-                        <div onClick={handleGoogleLogin} className='flex'>
+                        <div onClick={handleGoogleLogin} className='flex cursor-pointer'>
                             <button type='submit' className="btn btn-primary">
                                 Login with google
                             </button>

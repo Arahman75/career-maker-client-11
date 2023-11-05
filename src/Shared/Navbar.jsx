@@ -8,6 +8,22 @@ const Navbar = () => {
     const links = <>
         <li><NavLink className='text-xl font-semibold hover:text-red-500' to='/'>Home</NavLink></li>
         <li><NavLink className='text-xl font-semibold hover:text-red-500' to='/services'>Services</NavLink></li>
+
+        {user?.email &&
+            <li tabIndex={0}>
+                <details className=''>
+                    <summary className='text-xl font-semibold hover:text-red-500'>dashboard</summary>
+                    <ul className="p-2">
+                        <li><NavLink className='font-bold hover:text-red-500' to='/my-services'>My Services</NavLink></li>
+                        <li><NavLink className='font-bold hover:text-red-500' to='/add-services'>Add Services</NavLink></li>
+                        <li><NavLink className='font-bold hover:text-red-500' to='/my-schedules'>My Schedules</NavLink></li>
+                    </ul>
+                </details>
+            </li>
+        }
+        {/* {
+            <li><NavLink className='text-xl font-semibold hover:text-red-500' to='/dashboard'>Dashboard</NavLink></li>
+        } */}
     </>
 
     const handleLogOut = () => {
@@ -52,17 +68,17 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user?.email ? <div className="flex">
-                        <button className="btn btn-sm  btn-ghost">{user?.displayName}</button>
+                        <button className="btn btn-sm text-xl font-semibold btn-ghost">{user?.displayName}</button>
                         <div className="">
                             {/* <img className='w-10 h-10 rounded-full' src="https://i.ibb.co/0yyt9zG/engagement.jpg" alt="userName" /> */}
                             <img className='w-10 h-10 rounded-full' src={user?.photoURL} alt="userName" />
                         </div>
 
-                        <button onClick={handleLogOut} className="btn btn-sm  btn-ghost">Logout</button>
+                        <button onClick={handleLogOut} className="btn text-xl font-semibold btn-sm btn-ghost">Logout</button>
                     </div>
                         :
                         <Link to='/login'>
-                            <button className="btn btn-sm  btn-ghost">Login</button>
+                            <button className="btn btn-sm text-xl font-semibold btn-ghost">Login</button>
                         </Link>
                 }
 
