@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignUp = () => {
@@ -12,26 +13,26 @@ const SignUp = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const photo = e.target.photo.value;
-        const password = e.target.password.value;
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo = form.photo.value;
+        const password = form.password.value;
         console.log(name, email, photo, password);
 
         //validation
 
         if (password.length < 6) {
-            toast.success("password should be at least 6 character.")
+            toast("password should be at least 6 character.")
             return;
         }
-
 
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
                 // handleUpdateProfile(name, photo)
                 //     .then(result => {
-                //         toast.success('User create successfully');
+                toast('User create successfully');
                 //         navigate('/')
                 //     })
             })
@@ -84,9 +85,6 @@ const SignUp = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" placeholder="password" className="input input-bordered" name='password' required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
                         </div>
                         <div className="form-control mt-6">
                             <button type='submit' className="btn btn-success">SignUp</button>
@@ -98,6 +96,7 @@ const SignUp = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
