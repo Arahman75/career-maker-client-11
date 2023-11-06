@@ -22,9 +22,6 @@ const HomeServices = () => {
                     ></ServiceCart>)
                 }
             </div>
-
-
-            {/* <h3 className='text-center text-4xl font-bold mb-4'>Uor Services</h3> */}
             <div className='flex justify-center items-center mt-5'>
                 <Link to="/services">
                     <button className="btn btn-primary text-center">Show All Services</button></Link>
