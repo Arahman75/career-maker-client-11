@@ -7,8 +7,8 @@ const Banner = () => {
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">Take a Good Care of Pets</h1>
-                    <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <p className="mb-5">Welcome to our online store for pet care! We have a wide range of products and services to cater to all your furry friends' needs. Whether you have a dog, cat, bird, small animal, or even an exotic pet, we've got you covered. Here's a glimpse of what you can find in our store</p>
+                    <button className="btn btn-primary">Order Now</button>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddServices = () => {
     const { user } = useContext(AuthContext)
@@ -8,20 +9,24 @@ const AddServices = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const date = form.date.value;
+        const img = form.img.value;
         const email = user?.email;
+        const price = form.price.value;
+        const serviceArea = form.serviceArea.value;
+        const serviceName = form.serviceName.value;
+        const description = form.description.value;
+
         const addService = {
-            customerName: name,
+            name,
             img,
+            serviceName,
+            serviceArea,
             email,
-            date,
-            service: title,
-            service_id: _id,
+            description,
             price: price
         }
         console.log(addService);
-
-        fetch('http://localhost:5000/', {
+        fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -32,7 +37,7 @@ const AddServices = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert('service book successfully')
+                    toast('service add successfully')
                 }
             })
     }
@@ -54,7 +59,7 @@ const AddServices = () => {
                         <label className="label">
                             <span className="label-text">Service Picture</span>
                         </label>
-                        <input type="text" name='servicePhoto' className="input input-bordered" required />
+                        <input type="text" name='img' className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -70,13 +75,6 @@ const AddServices = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Date</span>
-                        </label>
-                        <input type="date" name='date' className="input input-bordered" required />
-
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" defaultValue={user?.email} name="email" className="input input-bordered" required />
@@ -85,14 +83,26 @@ const AddServices = () => {
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type="text" placeholder='price' className="input input-bordered" required />
-
+                        <input type="text" placeholder='price' name='price' className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Service Area</span>
+                        </label>
+                        <input type="text" name='serviceArea' placeholder='Service Area' className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Description</span>
+                        </label>
+                        <textarea type="text" name='description' placeholder='description' className="input input-bordered" required />
                     </div>
                 </div>
                 <div className="form-control mt-6">
-                    <input className="btn btn-primary btn-block" type="submit" value="Order Confirm" />
+                    <input className="btn btn-primary btn-block" type="submit" value="Add Service" />
                 </div>
             </form>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

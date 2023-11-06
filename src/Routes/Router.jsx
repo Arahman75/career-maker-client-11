@@ -9,6 +9,7 @@ import MySchedules from "../Pages/MySchedules";
 import MyServices from "../Pages/MyServices";
 import AddServices from "../Pages/AddServices";
 import ServiceDetail from "../Pages/ServiceDetail";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -43,11 +44,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add-services',
-                element: <AddServices></AddServices>
+                element: <PrivateRoute>
+                    <AddServices></AddServices>
+                </PrivateRoute>
             },
             {
                 path: '/service-detail/:id',
-                element: <ServiceDetail></ServiceDetail>,
+                element: <PrivateRoute>
+                    <ServiceDetail></ServiceDetail>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             }
 
