@@ -45,7 +45,10 @@ const AddServices = () => {
 
     return (
         <div>
-            <h3 className='text-center text-3xl'>Add Services:</h3>
+            <div className='text-center mb-8'>
+                <h3 className='text-4xl font-bold mb-2'>Add Service</h3>
+                <p className='text-lg text-black font-semibold'>We are your local dog home boarding <br /> service giving you complete</p>
+            </div>
             <form onSubmit={handleAddService}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="form-control">

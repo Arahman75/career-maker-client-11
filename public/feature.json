@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Find a Dog Sitter",
+        "img": "https://i.ibb.co/bJVQcpC/feature1.jpg",
+        "description": "Find the perfect sitter to make sure your puppy receives the best possible care in your absence."
+    },
+    {
+        "id": 2,
+        "name": "Become a Dog Sitter",
+        "img": "https://i.ibb.co/F5C9ZqQ/feature4.jpg",
+        "description": "Becoming a dog sitter can be a rewarding and enjoyable experience, especially if you love dogs and have a passion for caring for them."
+    },
+    {
+        "id": 3,
+        "name": "Start a franchise",
+        "img": "https://i.ibb.co/5GcxLNL/feature3.jpg",
+        "description": "Start a franchise in the pet care industry that can meet the needs of pet owners and their beloved companions"
+    }
+]
