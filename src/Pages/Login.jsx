@@ -20,6 +20,8 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast('User login successfully')
+                // navigate after login
+                navigate(location?.state ? location.state : "/")
             })
             .catch(error => {
                 toast.error(error.message)

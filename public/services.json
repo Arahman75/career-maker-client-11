@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/YXdfVq9/online-store.jpg",
+        "name": "Online Store",
+        "description": "Welcome to our online store for pet care! We have a wide range of products and services to cater to all your furry friends' needs. Whether you have a dog, cat, bird, small animal, or even an exotic pet, we've got you covered. Here's a glimpse of what you can find in our store:",
+        "price": 2500
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/yk1Q91z/petgrooming.jpg",
+        "name": "Pet Grooming",
+        "description": "Pet grooming is the process of cleaning, maintaining, and improving the physical appearance and health of domestic animals, particularly pets. Grooming is an essential aspect of responsible pet ownership, as it not only helps pets look their best but also ensures their",
+        "price": 2000
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/zSf4WDR/traiend.jpg",
+        "name": "Pet First Trained",
+        "description": "When people think of first aid, they often do not think about their pets. Pets have accidents the same as humans and knowing what to do should the worst happen is a simple thing to learn with basic training. Pet first aid is not aimed to replace veterinary care but it",
+        "price": 4000
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/WxkmYGs/walking.jpg",
+        "name": "Dog Walking",
+        "description": "Dogs are restrained by a collar around their neck or a harness, or by simply following their guardian with familiarity and verbal control. Commonly, the dog is walked by the guardian or another family member, but there are also professional dog walkers. Dog owners",
+        "price": 3000
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/TTcN8Q9/adopting.jpg",
+        "name": "Pet Adoption",
+        "description": "Pet adoption is the process of transferring responsibility for a pet that was previously owned by another party. Common sources for adoptable pets are animal shelters, rescue groups, or other pet owners. Some organizations give adopters ownership of the pet, while others use a guardianship model wherein the organization retains",
+        "price": 3200
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co/gVRSsSm/boarding.jpg",
+        "name": "Pet Boarding",
+        "description": "At our online pet care store, we offer more than just products - we also provide a reliable and comfortable pet boarding service for when you need to be away from home and can't take your furry companion with you. Here are the details of our pet boarding service:",
+        "price": 3000
+    }
+]
