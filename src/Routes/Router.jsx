@@ -8,6 +8,7 @@ import Services from "../Pages/Services";
 import MySchedules from "../Pages/MySchedules";
 import MyServices from "../Pages/MyServices";
 import AddServices from "../Pages/AddServices";
+import ServiceDetail from "../Pages/ServiceDetail";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
             {
                 path: '/add-services',
                 element: <AddServices></AddServices>
+            },
+            {
+                path: '/service-detail/:id',
+                element: <ServiceDetail></ServiceDetail>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             }
 
         ]

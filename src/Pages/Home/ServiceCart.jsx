@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const ServiceCart = ({ service }) => {
     const { user } = useContext(AuthContext);
@@ -17,7 +18,8 @@ const ServiceCart = ({ service }) => {
                 </div>
                 <p className='text-lg'>{description}</p>
                 <div className="card-actions justify-center">
-                    <button className="btn btn-primary">View Detail</button>
+                    <Link to={`/service-detail/${_id}`}>
+                        <button className="btn btn-primary">View Detail</button></Link>
                 </div>
             </div>
         </div>
