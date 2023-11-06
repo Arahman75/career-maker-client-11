@@ -4,7 +4,7 @@ import AllServiceCart from './AllServiceCart';
 
 
 const Services = () => {
-    const services = useLoaderData();
+    const services = useLoaderData([]);
 
     return (
         <div className='mt-12'>

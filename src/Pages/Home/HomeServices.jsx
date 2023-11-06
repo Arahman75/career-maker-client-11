@@ -10,7 +10,7 @@ const HomeServices = () => {
             .then(res => res.json())
             .then(data => setServices(data)
             )
-    }, [])
+    }, [services])
     return (
         <div className='mt-12'>
             <div className='text-center mb-8'>
