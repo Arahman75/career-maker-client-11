@@ -25,7 +25,7 @@ const ServiceDetail = () => {
             date,
             price
         }
-        console.log(booking);
+        // console.log(booking);
         fetch('http://localhost:5000/booking', {
             method: 'POST',
             headers: {
@@ -35,7 +35,7 @@ const ServiceDetail = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
                     toast('booking added successfully')
                 }

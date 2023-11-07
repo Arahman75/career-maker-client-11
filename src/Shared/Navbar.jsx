@@ -14,7 +14,7 @@ const Navbar = () => {
                 <details className=''>
                     <summary className='text-xl font-semibold'>dashboard</summary>
                     <ul className="p-2">
-                        <li><NavLink className='font-bold' to='/my-services'>My Services</NavLink></li>
+                        <li><NavLink className='font-bold' to='/manage-services'>Manage Services</NavLink></li>
                         <li><NavLink className='font-bold' to='/add-services'>Add Services</NavLink></li>
                         <li><NavLink className='font-bold' to='/my-schedules'>My Schedules</NavLink></li>
                     </ul>
