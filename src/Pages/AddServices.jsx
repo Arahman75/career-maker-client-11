@@ -50,7 +50,7 @@ const AddServices = () => {
                 <p className='text-lg text-black font-semibold'>We are your local dog home boarding <br /> service giving you complete</p>
             </div>
             <form onSubmit={handleAddService}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">User Picture</span>

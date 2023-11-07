@@ -6,24 +6,21 @@ import { AuthContext } from '../provider/AuthProvider';
 const Navbar = () => {
     const { logOut, user } = useContext(AuthContext);
     const links = <>
-        <li><NavLink className='text-xl font-semibold hover:text-red-500' to='/'>Home</NavLink></li>
-        <li><NavLink className='text-xl font-semibold hover:text-red-500' to='/services'>Services</NavLink></li>
+        <li><NavLink className='text-xl font-semibold' to='/'>Home</NavLink></li>
+        <li><NavLink className='text-xl font-semibold' to='/services'>Services</NavLink></li>
 
         {user?.email &&
             <li tabIndex={0}>
                 <details className=''>
-                    <summary className='text-xl font-semibold hover:text-red-500'>dashboard</summary>
+                    <summary className='text-xl font-semibold'>dashboard</summary>
                     <ul className="p-2">
-                        <li><NavLink className='font-bold hover:text-red-500' to='/my-services'>My Services</NavLink></li>
-                        <li><NavLink className='font-bold hover:text-red-500' to='/add-services'>Add Services</NavLink></li>
-                        <li><NavLink className='font-bold hover:text-red-500' to='/my-schedules'>My Schedules</NavLink></li>
+                        <li><NavLink className='font-bold' to='/my-services'>My Services</NavLink></li>
+                        <li><NavLink className='font-bold' to='/add-services'>Add Services</NavLink></li>
+                        <li><NavLink className='font-bold' to='/my-schedules'>My Schedules</NavLink></li>
                     </ul>
                 </details>
             </li>
         }
-        {/* {
-            <li><NavLink className='text-xl font-semibold hover:text-red-500' to='/dashboard'>Dashboard</NavLink></li>
-        } */}
     </>
 
     const handleLogOut = () => {
@@ -43,26 +40,15 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className=''>
-                    <img src={logo} className='w-24 h-24' alt="" />
+                    <Link to="/"> <img src={logo} className='w-24 h-24' alt="" /></Link>
                 </div>
-                <a className="btn btn-ghost normal-case font-bold    hidden lg:block text-2xl hover:text-red-500">Pet Sitting and Walking</a>
+                <Link to="/" className="btn btn-ghost normal-case font-bold hidden lg:block text-xl">Pet Sitting & Walking</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {
                         links
                     }
-                    {/* <li><a>Item 1</a></li>
-                    <li tabIndex={0}>
-                        <details>
-                            <summary>Parent</summary>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a>Item 3</a></li> */}
                 </ul>
             </div>
             <div className="navbar-end">
@@ -70,7 +56,6 @@ const Navbar = () => {
                     user?.email ? <div className="flex">
                         <button className="btn btn-sm text-xl font-semibold btn-ghost">{user?.displayName}</button>
                         <div className="">
-                            {/* <img className='w-10 h-10 rounded-full' src="https://i.ibb.co/0yyt9zG/engagement.jpg" alt="userName" /> */}
                             <img className='w-10 h-10 rounded-full' src={user?.photoURL} alt="userName" />
                         </div>
 
@@ -81,13 +66,6 @@ const Navbar = () => {
                             <button className="btn btn-sm text-xl font-semibold btn-ghost">Login</button>
                         </Link>
                 }
-
-
-
-                {/* <button onClick={handleLogOut} className="btn btn-outline btn-error">LogOut</button>
-                <Link to='/login'>
-                    <button className="btn btn-outline btn-error">Login</button>
-                </Link> */}
             </div>
         </div>
     );

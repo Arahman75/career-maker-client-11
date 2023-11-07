@@ -7,7 +7,7 @@ const ServiceCart = ({ service }) => {
     console.log(user);
     const { img, name, price, description, _id } = service;
     return (
-        <div className="card card-compact bg-base-100 shadow-xl">
+        <div className="card card-compact bg-base-100 shadow-xl w-4/5 mx-auto">
             <figure><img src={img} alt="Shoes" className='h-64 w-full' /></figure>
             <div className="card-body">
                 <h2 className="card-title text-3xl">{name}</h2>
