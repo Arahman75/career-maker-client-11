@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services'),
+                loader: () => fetch('https://b8a11-career-maker-server.vercel.app/services'),
             },
             {
                 path: '/login',
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ServiceDetail></ServiceDetail>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://b8a11-career-maker-server.vercel.app/services/${params.id}`)
             }
 
         ]
