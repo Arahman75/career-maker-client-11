@@ -2,11 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ManageCart = ({ booking }) => {
-    // console.log(booking);
-    const { serviceName, address, date } = booking;
+    console.log(booking);
+    const { img, serviceName, serviceArea, price } = booking;
 
     return (
         <tr>
+            <td>
+                <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                        <img src={img} alt="Avatar Tailwind CSS Component" />
+                    </div>
+                </div>
+            </td>
             <td>
                 <div className="flex items-center space-x-3">
                     <div>
@@ -15,10 +22,10 @@ const ManageCart = ({ booking }) => {
                 </div>
             </td>
             <td>
-                {date}
+                {serviceArea}
             </td>
             <td>
-                {address}
+                {price}
             </td>
 
             <th>

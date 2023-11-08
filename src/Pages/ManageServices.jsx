@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../provider/AuthProvider';
+import React, { useEffect, useState } from 'react';
+
 import ManageCart from './ManageCart';
 
 const ManageServices = () => {
-    const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
 
 
-    const url = (`http://localhost:5000/booking?email=${user?.email}`);
+    const url = (`http://localhost:5000/services`);
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -21,9 +20,10 @@ const ManageServices = () => {
                 <table className="table">
                     <thead>
                         <tr>
+                            <th className='text-2xl text-green-500 font-semibold'>Service Picture</th>
                             <th className='text-2xl text-green-500 font-semibold'>Service Name</th>
-                            <th className='text-2xl text-green-500 font-semibold'>Date</th>
-                            <th className='text-2xl text-green-500 font-semibold'>Address</th>
+                            <th className='text-2xl text-green-500 font-semibold'>Service Area</th>
+                            <th className='text-2xl text-green-500 font-semibold'>Price</th>
                             <th className='text-2xl text-green-500 font-semibold'>Update</th>
                             <th className='text-2xl text-red-500 font-semibold'>Delete</th>
 
