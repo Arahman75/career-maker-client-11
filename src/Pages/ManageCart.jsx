@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ManageCart = ({ booking }) => {
-    console.log(booking);
-    const { img, serviceName, serviceArea, price } = booking;
+const ManageCart = ({ booking, handleDelete }) => {
+    // console.log(booking);
+    const { img, serviceName, serviceArea, price, _id } = booking;
 
     return (
         <tr>
@@ -33,7 +33,7 @@ const ManageCart = ({ booking }) => {
                     <button className="btn btn-success">Update</button></Link>
             </th>
             <th>
-                <button className="btn btn-error">Delete</button>
+                <button onClick={() => handleDelete(_id)} className="btn btn-error">Delete</button>
             </th>
         </tr>
     );

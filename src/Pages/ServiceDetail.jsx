@@ -26,7 +26,7 @@ const ServiceDetail = () => {
             price
         }
         // console.log(booking);
-        fetch('http://localhost:5000/booking', {
+        fetch('https://b8a11-career-maker-server.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

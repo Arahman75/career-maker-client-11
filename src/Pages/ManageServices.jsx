@@ -1,21 +1,39 @@
 import React, { useEffect, useState } from 'react';
 
 import ManageCart from './ManageCart';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ManageServices = () => {
     const [bookings, setBookings] = useState([]);
 
-
-    const url = (`http://localhost:5000/services`);
+    const url = (`https://b8a11-career-maker-server.vercel.app/services`);
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [url])
 
-
+    // handle delete
+    const handleDelete = (id) => {
+        const proceed = toast('Are you sure you want to delete');
+        if (proceed) {
+            fetch(`https://b8a11-career-maker-server.vercel.app/services/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        toast('Deleted successfully')
+                        const remaining = bookings.filter(booking => booking._id !== id);
+                        setBookings(remaining)
+                    }
+                })
+        }
+    }
     return (
         <div>
+            <div><h3>Services : {bookings.length}</h3></div>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
@@ -31,7 +49,9 @@ const ManageServices = () => {
                     </thead>
                     <tbody>
                         {
-                            bookings.map(booking => <ManageCart booking={booking} key={booking._id}></ManageCart>)
+                            bookings.map(booking => <ManageCart booking={booking} key={booking._id}
+                                handleDelete={handleDelete}
+                            ></ManageCart>)
                         }
 
 
@@ -40,6 +60,7 @@ const ManageServices = () => {
 
                 </table>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
 
     );

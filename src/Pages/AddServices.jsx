@@ -26,7 +26,7 @@ const AddServices = () => {
             price: price
         }
         console.log(addService);
-        fetch('http://localhost:5000/services', {
+        fetch('https://b8a11-career-maker-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

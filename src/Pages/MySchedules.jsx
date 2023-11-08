@@ -7,7 +7,7 @@ const MySchedules = () => {
     const [bookings, setBookings] = useState([]);
 
 
-    const url = (`http://localhost:5000/booking?email=${user?.email}`);
+    const url = (`https://b8a11-career-maker-server.vercel.app/booking?email=${user?.email}`);
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
